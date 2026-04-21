@@ -633,10 +633,16 @@ function sync(state) {
 
 window.signInGoogle = async () => {
   try {
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    if (isMobile) await signInWithRedirect(auth, new GoogleAuthProvider());
-    else await signInWithPopup(auth, new GoogleAuthProvider());
-  } catch(e) { toast('Erro ao entrar. Tente novamente.','error'); }
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+    await signInWithPopup(auth, provider);
+  } catch(e) {
+    if (e.code === 'auth/popup-blocked') {
+      toast('Popup bloqueado. Libere popups no navegador e tente de novo.', 'error');
+    } else if (e.code !== 'auth/popup-closed-by-user') {
+      toast('Erro ao entrar. Tente novamente.', 'error');
+    }
+  }
 };
 window.signOut = () => fbSignOut(auth);
 
@@ -758,8 +764,6 @@ function toast(msg, type='success') {
   clearTimeout(t._t);
   t._t=setTimeout(()=>{ t.className=`toast ${type}`; }, 2800);
 }
-
-getRedirectResult(auth).catch(()=>{});
 
 onAuthStateChanged(auth, user => {
   if(user) {
