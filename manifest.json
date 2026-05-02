@@ -1,0 +1,26 @@
+{
+  "name": "FinTrack — Controle Financeiro",
+  "short_name": "FinTrack",
+  "description": "Controle financeiro pessoal sincronizado",
+  "start_url": "/FinTrack/",
+  "scope": "/FinTrack/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#080910",
+  "theme_color": "#080910",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='40' fill='%23080910'/><polygon points='96,20 172,62 172,130 96,172 20,130 20,62' fill='none' stroke='%236366f1' stroke-width='8'/><polygon points='96,55 137,78 137,114 96,137 55,114 55,78' fill='%236366f1' opacity='0.6'/></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='100' fill='%23080910'/><polygon points='256,50 460,163 460,349 256,462 52,349 52,163' fill='none' stroke='%236366f1' stroke-width='20'/><polygon points='256,145 358,203 358,309 256,367 154,309 154,203' fill='%236366f1' opacity='0.6'/></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["finance", "productivity"]
+}
